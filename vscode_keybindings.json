@@ -1,0 +1,280 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+shift+l",
+        "command": "r.loadAll"
+    },
+    {
+        "key": "ctrl+shift+d",
+        "command": "r.document"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "r.runCommand",
+        "args": "devtools::install()"
+    },
+    {
+        "key": "ctrl+shift+r",
+        "command": "r.runCommand",
+        "args": "rcmdcheck::rcmdcheck(args = c('--no-manual', '--as-cran'), error_on = 'warning', check_dir = 'check')"
+    },
+    {
+        "key": "shift+cmd+r",
+        "command": "r.createRTerm"
+    },
+    {
+        "description": "install package",
+        "key": "shift+cmd+2",
+        "command": "r.runCommandWithSelectionOrWord",
+        "when": "editorTextFocus",
+        "args": "install.packages('$$')"
+    },
+    {
+        "description": "clean environment",
+        "key": "shift+cmd+1",
+        "command": "r.runCommand",
+        "args": "rm(list = ls())"
+    },
+    {
+        "description": "install distr6 from GH",
+        "key": "shift+ctrl+1",
+        "command": "r.runCommand",
+        "args": "remotes::install_github('alan-turing-institute/distr6', upgrade = FALSE)"
+    },
+    {
+        "description": "install set6 from GH",
+        "key": "shift+ctrl+2",
+        "command": "r.runCommand",
+        "args": "remotes::install_github('xoopR/set6', upgrade = FALSE)"
+    },
+    {
+        "description": "install mlr3proba from GH",
+        "key": "shift+ctrl+3",
+        "command": "r.runCommand",
+        "args": "remotes::install_github('mlr-org/mlr3proba', upgrade = FALSE)"
+    },
+    {
+        "description": "load param6",
+        "key": "shift+ctrl+0",
+        "command": "r.runCommand",
+        "args": "devtools::load_all('/Users/raphaelsonabend/Documents/GitHub/param6')"
+    },
+    {
+        "description": "load set6",
+        "key": "shift+ctrl+9",
+        "command": "r.runCommand",
+        "args": "devtools::load_all('/Users/raphaelsonabend/Documents/GitHub/set6')"
+    },
+    {
+        "description": "load distr6",
+        "key": "shift+ctrl+8",
+        "command": "r.runCommand",
+        "args": "devtools::load_all('/Users/raphaelsonabend/Documents/GitHub/distr6')"
+    },
+    {
+        "description": "load ooplah",
+        "key": "shift+ctrl+7",
+        "command": "r.runCommand",
+        "args": "devtools::load_all('/Users/raphaelsonabend/Documents/GitHub/ooplah')"
+    },
+    {
+        "key": "ctrl+cmd+r",
+        "command": "rerunSearchEditorSearch",
+        "when": "inSearchEditor"
+    },
+    {
+        "key": "shift+cmd+r",
+        "command": "-rerunSearchEditorSearch",
+        "when": "inSearchEditor"
+    },
+    {
+        "key": "shift+cmd+i",
+        "command": "html.showPreviewToSide",
+        "when": "editorLangId == 'html'"
+    },
+    {
+        "key": "cmd+k v",
+        "command": "-html.showPreviewToSide",
+        "when": "editorLangId == 'html'"
+    },
+    {
+        "key": "shift+alt+cmd+i",
+        "command": "html.showPreview",
+        "when": "editorLangId == 'html'"
+    },
+    {
+        "key": "shift+cmd+v",
+        "command": "-html.showPreview",
+        "when": "editorLangId == 'html'"
+    },
+    {
+        "key": "cmd+shift+y",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "${TM_SELECTED_TEXT/(p_[a-zA-Z]{3})\\(\\S{0,2}\\s{0,1}\\S{0,1}\\s{0,1}\"(\\S*)\", /${2} = ${1}(/g}"
+        }
+    },
+    {
+        "key": "ctrl+shift+t",
+        "command": "test-explorer.run-all"
+    },
+    {
+        "key": "ctrl+alt+t",
+        "command": "test-explorer.debug"
+    },
+    {
+        "key": "ctrl+shift+alt+t",
+        "command": "test-explorer.run-this-file"
+    },
+    {
+        "description": "Source script",
+        "key": "ctrl+shift+s",
+        "command": "r.runCommandWithEditorPath",
+        "args": "source('$$')"
+    },
+    {
+        "description": "Render RMD",
+        "key": "ctrl+shift+k",
+        "command": "r.runCommandWithEditorPath",
+        "when": "editorTextFocus",
+        "args": "rmarkdown::render('$$')"
+    },
+    {
+        "key": "shift+alt+s",
+        "command": "workbench.action.files.saveAs"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "-workbench.action.files.saveAs"
+    },
+    {
+        "key": "shift+alt+c",
+        "command": "copyFilePath"
+    },
+    {
+        "key": "ctrl+alt+space",
+        "command": "workbench.action.quickSwitchWindow"
+    },
+    {
+        "key": "ctrl+alt+space",
+        "command": "workbench.action.quickSwitchWindow"
+    },
+    {
+        "key": "ctrl+;",            // or whatever keybinding you want
+        "command":  "editor.action.insertSnippet",
+        "args": {
+          "snippet": "${TM_SELECTED_TEXT/^(\\s+)([^\\s])/$2/g}"  // replace spaces with nothing
+        },
+        "when": "editorTextFocus && editorHasSelection"
+      },
+      {
+        "key": "ctrl+shift+i",            // add index entry
+        "command":  "editor.action.insertSnippet",
+        "args": {
+          "snippet": "`r index('${TM_SELECTED_TEXT}')`"
+        },
+        "when": "editorTextFocus && editorHasSelection"
+      },
+      {
+        "key": "ctrl+shift+d",            // add index entry & highlight
+        "command":  "editor.action.insertSnippet",
+        "args": {
+          "snippet": "`r index('${TM_SELECTED_TEXT}', aside = TRUE)`"
+        },
+        "when": "editorTextFocus && editorHasSelection"
+      },
+      {
+        "key": "ctrl+shift+r",            // add reference
+        "command":  "editor.action.insertSnippet",
+        "args": {
+          "snippet": "`r ref('${TM_SELECTED_TEXT}')`"
+        },
+        "when": "editorTextFocus && editorHasSelection"
+      },
+      {
+        "key": "ctrl+shift+;",            // or whatever keybinding you want
+        "command":  "editor.action.insertSnippet",
+        "args": {
+          "snippet": "${TM_SELECTED_TEXT/=/<-/g}"  // replace = with <-
+        },
+        "when": "editorTextFocus && editorHasSelection"
+    },
+    {
+        "key": "ctrl+alt+r",
+        "command": "r.createRTerm"
+    },
+    {
+        "description": "View R object",
+        "key": "ctrl+alt+v",
+        "command": "r.runCommandWithSelectionOrWord",
+        "when": "editorTextFocus",
+        "args": "View($$)"
+    },
+    {
+        "key": "ctrl+shift+t",
+        "command": "test-explorer.run-all"
+    },
+    {
+        "key": "ctrl+alt+t",
+        "command": "test-explorer.debug"
+    },
+    {
+        "key": "ctrl+shift+alt+t",
+        "command": "test-explorer.run-this-file"
+    },
+    {
+        "description": "Clear environment",
+        "key": "ctrl+shift+1",
+        "command": "r.runCommand",
+        "args": "rm(list = ls())"
+    },
+    {
+        "description": "Install from CRAN",
+        "key": "ctrl+shift+2",
+        "command": "r.runCommandWithSelectionOrWord",
+        "when": "editorTextFocus",
+        "args": "install.packages(c('$$'))"
+    },
+    {
+        "description": "Install from GH",
+        "key": "ctrl+shift+3",
+        "command": "r.runCommandWithSelectionOrWord",
+        "when": "editorTextFocus",
+        "args": "remotes::install_github('$$')"
+    },
+    {
+        "description": "R CMD Check",
+        "key": "ctrl+shift+4",
+        "command": "r.runCommand",
+        "args": "rcmdcheck::check()"
+    },
+    {
+        "key": "cmd+pagedown",
+        "command": "workbench.action.showNextWindowTab"
+    },
+    {
+        "key": "shift+cmd+j",
+        "command": "language-julia.startREPL"
+    },
+    {
+        "key": "alt+j alt+o",
+        "command": "-language-julia.startREPL"
+    },
+    {
+      "key": "shift+cmd+s shift+cmd+s",
+      "command": "cSpell.goToNextSpellingIssueAndSuggest"
+    },
+    {
+      "key": "ctrl+shift+l",
+      "command": "lorem-ipsum.paragraph",
+      "when": "editorTextFocus"
+    },
+    {
+      "key": "ctrl+shift+cmd+l",
+      "command": "lorem-ipsum.line",
+      "when": "editorTextFocus"
+    }
+]
+
+// "snippet": "${TM_SELECTED_TEXT/'(p\\_[a-zA-Z]{3})\\(\"[a-zA-Z]*, default\",'/_/gi}"
